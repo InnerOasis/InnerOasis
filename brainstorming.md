@@ -45,5 +45,9 @@ Mobile App Dev - App Brainstorming
    - **Habit:** When a user wants to go on a hike but is unsure which one they should go to the hiking trail app can help to find one.
    - **Scope:** V1 would allow users to browse/search for hiking trails and guides through the trail. V2 would allow the users to rate/comment about trails to share difficulties or things to look out for.
 
+## Final App Chosen
+   - De-stresser App
+
+
 
 
