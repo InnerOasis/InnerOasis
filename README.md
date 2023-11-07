@@ -84,7 +84,7 @@ The De-Stresser App is a mobile application that transforms ones phone into a cu
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+[Add picture of your hand sketched wireframes in this section] <img src="/IMG_0114.jpg" width=600>
 
 <br>
 
