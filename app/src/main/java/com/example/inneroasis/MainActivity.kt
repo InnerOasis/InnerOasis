@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
     }
-
+    // comment teresa branch
     private fun generateSampleData(): List<SampleData> {
         val dataList = mutableListOf<SampleData>()
         for (i in 1..10) {
