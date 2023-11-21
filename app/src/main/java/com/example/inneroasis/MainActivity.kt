@@ -28,6 +28,16 @@ class MainActivity : AppCompatActivity() {
         val adapter2 = SampleAdapter(dataList2)
         recyclerView2.adapter = adapter2
 
+
+        val recyclerView3: RecyclerView = findViewById(R.id.recommendRecyclerView)
+        recyclerView3.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        val dataList3 = generateSampleData()
+        val adapter3 = SampleAdapter(dataList2)
+        recyclerView3.adapter = adapter3
+
+
         val recyclerView: RecyclerView = findViewById(R.id.relaxingRecyclerView)
         recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
