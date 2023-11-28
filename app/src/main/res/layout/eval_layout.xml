@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stress_symptom"
         app:layout_constraintVertical_bias="0.584"
-        android:autofillHints="Enter Here" />
+        android:autofillHints="Enter" />
 
     <TextView
         android:id="@+id/activities_eval"
@@ -53,7 +53,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/enter_here2"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -106,7 +106,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/enter_here"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -118,7 +118,7 @@
         android:id="@+id/stress_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
