@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="horizontal|vertical"
     tools:context=".MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+        android:id="@+id/nav_browse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="@color/white"
-        app:itemTextColor="@color/black"
         app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/bottom_navigation" />
 
     <TextView
-        android:id="@+id/sensoryTextView"
+        android:id="@+id/recommendTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensory Videos"
+        android:text="Recommendations"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +32,7 @@
         app:layout_constraintVertical_bias="0.12" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sensoryRecyclerView"
+        android:id="@+id/recommendRecyclerView"
         android:layout_width="408dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
@@ -46,10 +47,10 @@
         tools:listitem="@layout/media_layout" />
 
     <TextView
-        android:id="@+id/natureTextView"
+        android:id="@+id/sensoryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nature Videos"
+        android:text="Sensory Videos"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +60,7 @@
         app:layout_constraintVertical_bias="0.377" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/natureRecyclerView"
+        android:id="@+id/sensoryRecyclerView"
         android:layout_width="408dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
@@ -73,10 +74,10 @@
         tools:listitem="@layout/media_layout" />
 
     <TextView
-        android:id="@+id/relaxingTextView"
+        android:id="@+id/natureTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Relaxing Techniques"
+        android:text="Nature Sounds"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +87,7 @@
         app:layout_constraintVertical_bias="0.639" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/relaxingRecyclerView"
+        android:id="@+id/natureRecyclerView"
         android:layout_width="408dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
@@ -98,6 +99,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.816"
+        tools:listitem="@layout/media_layout" />
+
+    <TextView
+        android:id="@+id/relaxingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Relaxing Techniques"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/relaxingRecyclerView"
+        android:layout_width="408dp"
+        android:layout_height="137dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="660dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/media_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
