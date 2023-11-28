@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         val supportFragmentManager = supportFragmentManager
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.content, YoutubeVideoFragment(), null).commit()
+
     }
 }
 
