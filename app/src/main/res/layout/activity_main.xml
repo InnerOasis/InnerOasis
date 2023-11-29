@@ -19,7 +19,7 @@
         app:menu="@menu/bottom_navigation" />
 
     <FrameLayout
-        android:id="@+id/content"
+        android:id="@+id/entry_frame"
         android:layout_width="409dp"
         android:layout_height="668dp"
         android:layout_marginTop="63dp"

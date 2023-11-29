@@ -7,44 +7,46 @@
     android:scrollbars="vertical"
     tools:context=".MainActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/white"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom_navigation" />
 
-
-    <TextView
-        android:id="@+id/natureTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nature Sounds"
-        android:textColor="@color/black"
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:hint="Enter Text"
+        android:inputType="text"
+        android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.705"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.029" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/natureRecyclerView"
-        android:layout_width="364dp"
-        android:layout_height="615dp"
+        android:id="@+id/searchRecyclerView"
+        android:layout_width="411dp"
+        android:layout_height="643dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816"
+        app:layout_constraintVertical_bias="0.818"
         tools:listitem="@layout/media_layout" />
 
 

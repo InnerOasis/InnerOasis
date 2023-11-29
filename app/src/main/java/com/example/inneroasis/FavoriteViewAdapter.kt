@@ -12,8 +12,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.You
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 
-class YoutubeRecyclerViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, private val context: Context) :
-    RecyclerView.Adapter<YoutubeRecyclerViewAdapter.YoutubeVideoViewHolder>() {
+class FavoriteViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, private val context: Context) :
+    RecyclerView.Adapter<FavoriteViewAdapter.YoutubeVideoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YoutubeVideoViewHolder {
         val context = parent.context
@@ -43,7 +43,6 @@ class YoutubeRecyclerViewAdapter(private val youtubeVideos: List<YoutubeModel.Re
             mItemView.setOnClickListener(this)
         }
         fun bind(youtubeVideo: YoutubeModel.Snippet, youtubeId: YoutubeModel.Id) {
-//            youtubePlayerView = mItemView.findViewById(R.id.youtube_player_view);
             Log.v("Json", youtubeVideo.toString())
             mediaTitle?.text = youtubeVideo.mediaName
             mediaDescription?.text = youtubeVideo.mediaDescription
