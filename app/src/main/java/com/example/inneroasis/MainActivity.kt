@@ -1,6 +1,5 @@
 package com.example.inneroasis
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val favoritesFragment: Fragment = FavoriteFragment()
         val browseFragment: Fragment = BrowseFragment()
         val searchFragment: Fragment = SearchFragment()
+        val stressEvalFragment: Fragment = StressEvalFragment()
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_browse -> fragment = browseFragment
                 R.id.nav_favorites -> fragment = favoritesFragment
                 R.id.nav_search -> fragment = searchFragment
+                R.id.nav_evaluation -> fragment = stressEvalFragment
             }
             replaceFragment(fragment)
             true
