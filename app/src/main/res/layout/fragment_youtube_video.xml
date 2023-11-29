@@ -16,21 +16,21 @@
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.009" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sensoryRecyclerView"
-        android:layout_width="408dp"
-        android:layout_height="137dp"
+        android:layout_width="411dp"
+        android:layout_height="225dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195"
+        app:layout_constraintVertical_bias="0.049"
         tools:listitem="@layout/media_layout" />
 
     <TextView
@@ -44,12 +44,12 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.351" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/natureRecyclerView"
-        android:layout_width="408dp"
-        android:layout_height="137dp"
+        android:layout_width="418dp"
+        android:layout_height="225dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scrollbars="horizontal"
@@ -58,6 +58,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515"
         tools:listitem="@layout/media_layout" />
 
     <TextView
@@ -71,12 +72,12 @@
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/relaxingRecyclerView"
         android:layout_width="408dp"
-        android:layout_height="137dp"
+        android:layout_height="225dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scrollbars="horizontal"
@@ -85,8 +86,10 @@
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/media_layout" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
