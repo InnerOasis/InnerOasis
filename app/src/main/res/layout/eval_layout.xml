@@ -6,8 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/stress_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
-        android:id="@+id/video_eval"
+        android:id="@+id/stress_eval"
+        android:layout_width="388dp"
+        android:layout_height="47dp"
+        android:text="@string/on_a_scale_of_1_to_10_how_would_you_rate_your_current_stress_level_1_being_relaxed_and_10_being_extremly_stressed"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <SeekBar
+        android:id="@+id/stressSeekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="282dp"
+        android:layout_height="41dp"
+        android:max="10"
+        android:min="0"
+        android:progress="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stress_eval"
+        app:layout_constraintVertical_bias="0.032" />
+
+    <TextView
+        android:id="@+id/video_text"
         android:layout_width="388dp"
         android:layout_height="47dp"
         android:text="@string/do_you_enjoy_calming_or_relaxing_videos"
@@ -17,114 +55,21 @@
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
-
-    <EditText
-        android:id="@+id/video_input"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stress_symptom"
-        app:layout_constraintVertical_bias="0.584"
-        android:autofillHints="Enter Here" />
+        app:layout_constraintVertical_bias="0.545" />
 
     <TextView
-        android:id="@+id/activities_eval"
-        android:layout_width="388dp"
-        android:layout_height="47dp"
-        android:text="@string/what_types_of_activities_or_hobbies_do_you_enjoy_that_help_you_relax"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
-
-    <EditText
-        android:id="@+id/activity_input"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/enter_here2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stress_symptom"
-        app:layout_constraintVertical_bias="0.268" />
-
-    <TextView
-        android:id="@+id/stress_eval"
-        android:layout_width="388dp"
-        android:layout_height="47dp"
-        android:text="@string/on_a_scale_of_1_to_10_how_would_you_rate_your_current_stress_level_1_being_relaxed_and_10_being_extremly_stressed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textAlignment="center"
-        app:layout_constraintVertical_bias="0.079" />
-
-    <TextView
-        android:id="@+id/stress_symptom"
-        android:layout_width="388dp"
-        android:layout_height="47dp"
-        android:textAlignment="center"
-        android:text="@string/do_you_notice_any_physical_symptoms_of_stress_such_as_muscle_tension_headaches_or_trouble_sleeping"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269" />
-
-    <SeekBar
-        android:id="@+id/stress_seekbar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="282dp"
-        android:layout_height="41dp"
-        android:max="10"
-        android:progress="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stress_eval"
-        app:layout_constraintVertical_bias="0.028" />
-
-    <EditText
-        android:id="@+id/input_symptom"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/enter_here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stress_symptom"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/stress_Button"
+        android:id="@+id/stress_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"
+        android:text="Rating 5"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/video_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video_input"
-        app:layout_constraintVertical_bias="0.503" />
+        app:layout_constraintTop_toBottomOf="@+id/stressSeekBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
