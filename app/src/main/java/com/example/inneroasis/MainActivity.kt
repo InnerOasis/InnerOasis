@@ -1,20 +1,30 @@
 package com.example.inneroasis
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()
+    {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //val seekBar = findViewById<SeekBar>(R.id.stressSeekBar)
+        //val stressRating = findViewById<TextView>(R.id.stress_rating)
 
         val supportFragmentManager = supportFragmentManager
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.content, YoutubeVideoFragment(), null).commit()
+
+
+
+
+
 
     }
 }
