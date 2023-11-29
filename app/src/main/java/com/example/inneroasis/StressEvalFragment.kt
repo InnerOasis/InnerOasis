@@ -21,7 +21,7 @@ class StressEvalFragment : Fragment() {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
 
-                stressRating.text = progress.toString()
+                stressRating.text = "Rating: $progress"
 
 
             }
