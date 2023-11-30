@@ -10,7 +10,7 @@
         android:id="@+id/stress_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Show Recommended"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Rating: 0"
+        android:text="Stress Level: 0"
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/video_text"
@@ -74,44 +74,44 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Relaxing Sounds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+    <CheckBox
         android:id="@+id/checkBox6"
         android:layout_width="145dp"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
-        android:text="Music"
+        android:layout_marginTop="8dp"
+        android:text="Calm Music"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="145dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="36dp"
-        android:text="Sensory Videos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/video_text" />
-
-    <CheckBox
         android:id="@+id/checkBox5"
         android:layout_width="145dp"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
-        android:text="Nature"
+        android:layout_marginTop="8dp"
+        android:text="Nature Sounds"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
 
     <CheckBox
-        android:id="@+id/checkBox4"
+        android:id="@+id/checkBox2"
         android:layout_width="145dp"
         android:layout_height="39dp"
-        android:layout_marginTop="4dp"
-        android:text="Calming Sounds"
+        android:layout_marginTop="20dp"
+        android:text="Sensory Videos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+        app:layout_constraintTop_toBottomOf="@+id/video_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
