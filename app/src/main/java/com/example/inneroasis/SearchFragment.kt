@@ -10,7 +10,6 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlin.math.log
 
 class SearchFragment : Fragment() {
     override fun onCreateView(
@@ -39,6 +38,6 @@ class SearchFragment : Fragment() {
     }
 
     private fun apiCall(recyclerView: RecyclerView, searchValue: String) {
-        ApiNetwork.callApi(recyclerView, requireContext(), searchValue = searchValue, layout = "vertical")
+        YoutubeApiNetwork.callYoutubeApi(recyclerView, requireContext(), searchValue = searchValue, layout = "vertical")
     }
 }

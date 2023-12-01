@@ -6,98 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@color/white"
-        app:itemTextColor="@color/black"
-        app:itemIconTint="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom_navigation" />
-
     <TextView
-        android:id="@+id/sensoryTextView"
+        android:id="@+id/favoriteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sensory Videos"
+        android:text="Favorite Videos"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.02" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sensoryRecyclerView"
-        android:layout_width="408dp"
-        android:layout_height="137dp"
+        android:id="@+id/favoriteRecyclerView"
+        android:layout_width="394dp"
+        android:layout_height="640dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/media_layout" />
 
-    <TextView
-        android:id="@+id/natureTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nature Videos"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/natureRecyclerView"
-        android:layout_width="408dp"
-        android:layout_height="137dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scrollbars="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/media_layout" />
-
-    <TextView
-        android:id="@+id/relaxingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Relaxing Techniques"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/relaxingRecyclerView"
-        android:layout_width="408dp"
-        android:layout_height="137dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:scrollbars="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.816"
-        tools:listitem="@layout/media_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

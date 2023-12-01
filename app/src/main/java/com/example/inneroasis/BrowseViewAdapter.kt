@@ -1,6 +1,7 @@
 package com.example.inneroasis
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,11 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
+const val VIDEO_EXTRA = "VIDEO_EXTRA"
 
-class FavoriteViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, private val context: Context) :
-    RecyclerView.Adapter<FavoriteViewAdapter.YoutubeVideoViewHolder>() {
+
+class BrowseViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, private val context: Context) :
+    RecyclerView.Adapter<BrowseViewAdapter.YoutubeVideoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YoutubeVideoViewHolder {
         val context = parent.context
@@ -30,17 +33,15 @@ class FavoriteViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>,
         youtubeVideo.snippet?.let { youtubeVideo.id?.let { it1 -> holder.bind(it, it1) } }
     }
 
-    inner class YoutubeVideoViewHolder(val mItemView: View) : RecyclerView.ViewHolder(mItemView),
+    inner class YoutubeVideoViewHolder(view: View) : RecyclerView.ViewHolder(view),
         View.OnClickListener {
 
-        var item: YoutubeModel? = null
-        private val mediaTitle: TextView? = mItemView.findViewById<View>(R.id.titleTextView) as TextView?
-        private val mediaDescription: TextView? = mItemView.findViewById<View>(R.id.descriptionTextView) as TextView?
-        private val youtubePlayer: YouTubePlayerView = mItemView.findViewById<YouTubePlayerView>(R.id.youtube_player_view)
-        val youtubePlayerView: YouTubePlayerView? = mItemView.findViewById(R.id.youtube_player_view);
+        private val mediaTitle: TextView? = view.findViewById<View>(R.id.titleTextView) as TextView?
+        private val mediaDescription: TextView? = view.findViewById<View>(R.id.descriptionTextView) as TextView?
+        val youtubePlayerView: YouTubePlayerView? = view.findViewById(R.id.youtube_player_view)
 
         init {
-            mItemView.setOnClickListener(this)
+            view.setOnClickListener(this)
         }
         fun bind(youtubeVideo: YoutubeModel.Snippet, youtubeId: YoutubeModel.Id) {
             Log.v("Json", youtubeVideo.toString())
@@ -61,6 +62,11 @@ class FavoriteViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>,
         }
 
         override fun onClick(v: View?) {
+            val video = youtubeVideos[adapterPosition]
+            Log.v("intent", video.toString())
+            val intent = Intent(context, CurrentPlayActivity::class.java)
+            intent.putExtra(VIDEO_EXTRA, video)
+            context.startActivity(intent)
 
         }
     }
