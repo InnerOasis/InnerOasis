@@ -10,24 +10,53 @@
         android:id="@+id/stress_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="Show Recommended"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
+
+    <TextView
+        android:id="@+id/stress_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Stress Level: 0"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/video_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stressSeekBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/video_text"
+        android:layout_width="388dp"
+        android:layout_height="47dp"
+        android:text="Check off any categories that you enjoy. "
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/stress_eval"
-        android:layout_width="388dp"
-        android:layout_height="47dp"
+        android:layout_width="389dp"
+        android:layout_height="92dp"
         android:text="@string/on_a_scale_of_1_to_10_how_would_you_rate_your_current_stress_level_1_being_relaxed_and_10_being_extremly_stressed"
         android:textAlignment="center"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <SeekBar
         android:id="@+id/stressSeekBar"
@@ -42,34 +71,47 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stress_eval"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.02" />
 
-    <TextView
-        android:id="@+id/video_text"
-        android:layout_width="388dp"
-        android:layout_height="47dp"
-        android:text="@string/do_you_enjoy_calming_or_relaxing_videos"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Relaxing Sounds"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
-    <TextView
-        android:id="@+id/stress_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="Rating 5"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/video_text"
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Calm Music"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stressSeekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Nature Sounds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
+        android:text="Sensory Videos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
