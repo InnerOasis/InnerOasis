@@ -27,11 +27,12 @@ class BrowseFragment : Fragment() {
 
         val sensoryRV = view.findViewById<View>(R.id.sensoryRecyclerView) as RecyclerView
         sensoryRV.layoutManager = GridLayoutManager(context, 2)
-        apiCall(sensoryRV, searchValue = "sensory_videos")
+        apiCall(sensoryRV, searchValue = "sensory_visuals")
+
         return view
     }
 
     private fun apiCall(recyclerView: RecyclerView, searchValue: String) {
-        ApiNetwork.callApi(recyclerView, requireContext(), searchValue = searchValue, layout = "horizontal")
+        YoutubeApiNetwork.callYoutubeApi(recyclerView, requireContext(), searchValue = searchValue, layout = "horizontal")
     }
 }

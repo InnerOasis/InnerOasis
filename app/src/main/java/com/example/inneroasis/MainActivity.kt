@@ -3,7 +3,6 @@ package com.example.inneroasis
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import com.example.inneroasis.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -19,9 +18,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val fragmentManager: FragmentManager = supportFragmentManager
-
-        // define your fragments here
         val favoritesFragment: Fragment = FavoriteFragment()
         val browseFragment: Fragment = BrowseFragment()
         val searchFragment: Fragment = SearchFragment()
@@ -29,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        // handle navigation selection
+        // handles navigation
         bottomNavigationView.setOnItemSelectedListener { item ->
             lateinit var fragment: Fragment
             when (item.itemId) {
@@ -42,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // Set default selection
+        // default navigation upon opening app
         bottomNavigationView.selectedItemId = R.id.nav_browse
 
     }

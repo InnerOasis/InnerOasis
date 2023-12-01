@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class YoutubeModel(
     @SerializedName("items")
     val youtubeItems: List<Results>?
-) {
+) : java.io.Serializable {
     data class Results(
         @SerializedName("id")
         var id: Id? = null,
@@ -20,7 +20,7 @@ data class YoutubeModel(
 
         @SerializedName("videoId")
         var videoId: String? = null,
-    )
+    ) : java.io.Serializable
 
     data class Snippet(
         @SerializedName("title")
@@ -64,4 +64,3 @@ data class YoutubeModel(
         var height: Int? = null
     ) : java.io.Serializable
 }
-
