@@ -11,15 +11,16 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
 
-object ApiNetwork {
-     fun callApi(recyclerView: RecyclerView, context: Context, searchValue: String, layout: String) {
+/* YoutubeApiNetwork creates a functions to call Youtube Api */
 
-        // Create and set up an AsyncHTTPClient() here
+object YoutubeApiNetwork {
+     fun callYoutubeApi(recyclerView: RecyclerView, context: Context, searchValue: String, layout: String) {
+
         val client = AsyncHttpClient()
 
         // Using the client, perform the HTTP request
         client[
-            "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q={$searchValue}&type=video&key=AIzaSyCkzvs7bs_5SdAr6Ds_QBz-XMcuoIVUebE",
+            "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q={$searchValue}&type=video&key=AIzaSyBeuONBv3vODYD_xGs0o52aGJjzpi8-ehg",
             object : JsonHttpResponseHandler() {
 
                 // Success when HTTP returns 200, reached API
@@ -27,34 +28,32 @@ object ApiNetwork {
                 {
 
 
-                    //TODO - Parse JSON into Models
                     val resultsJSON : JSONArray = json.jsonObject.getJSONArray("items")
                     val jsonResponse : String = resultsJSON.toString()
 
                     val gson = Gson()
-                    Log.v("Response", jsonResponse)
+                    Log.v("Response CallApi", jsonResponse)
                     val modelsType = object : TypeToken<List<YoutubeModel.Results>>() {}.type
                     val models: List<YoutubeModel.Results>? = gson.fromJson(jsonResponse, modelsType)
+
 
                     if (layout == "horizontal") {
                         recyclerView.layoutManager =
                             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                     }
 
-                    recyclerView.adapter = models?.let { context?.let { it1 ->
-                        FavoriteViewAdapter(it,
-                            it1
+                    recyclerView.adapter = models?.let {
+                        BrowseViewAdapter(it,
+                            context
                         )
-                    } }
+                    }
 
                     Log.d("InnerOasis", "response successful")
 
 
                 }
 
-                /*
-                 * Failure when HTTP response is any 400
-                 */
+                // Failure when HTTP response is any 400
                 override fun onFailure(
                     statusCode: Int,
                     headers: Headers?,
@@ -68,4 +67,5 @@ object ApiNetwork {
                 }
             }]
     }
+
 }
