@@ -10,10 +10,21 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import android.widget.TextView
 import android.app.AlertDialog
+import android.widget.Toast
 
 
 class StressEvalFragment : Fragment() {
     private val logTag: String by lazy { getString(R.string.log_tag) }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.showStressButton()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? MainActivity)?.hideStressButton()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,25 +37,12 @@ class StressEvalFragment : Fragment() {
         val stressRating = view.findViewById<TextView>(R.id.stress_rating)
         val currentStressRating = view.findViewById<TextView>(R.id.currentStressLevel)
 
-        //function for showing stress level dialog
-        fun showStressRatingDialog() {
-            val currentProgress = seekBar.progress
-            val message = "Current Stress Level: $currentProgress"
 
-            AlertDialog.Builder(requireContext())
-                .setTitle("Stress Rating")
-                .setMessage(message)
-                .setPositiveButton("OK") { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .show()
-        }
 
         // Stress seekBar
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                stressRating.text = "Stress Level: $progress"
-                updateStressLevelDescription(progress)
+                stressRating.text = "Level: $progress"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -65,20 +63,27 @@ class StressEvalFragment : Fragment() {
         return view
     }
 
-    private fun updateStressLevelDescription(progress: Int) {
-        when (progress) {
-            in 1..3 -> {
-                // Handle the case for low stress level
+
+    fun showStressRatingDialog() {
+        val seekBar = view?.findViewById<SeekBar>(R.id.stressSeekBar)
+        val currentProgress = seekBar?.progress
+        val message = "Current Stress Level: $currentProgress\n" +
+                "${currentProgress?.let { getStressLevelDescription(it) }}"
+
+        AlertDialog.Builder(requireActivity())
+            .setTitle("Stress Rating")
+            .setMessage(message)
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
             }
-            in 4..6 -> {
-                // Handle the case for moderate stress level
-            }
-            in 7..10 -> {
-                // Handle the case for high stress level
-            }
-            else -> {
-                // Handle unexpected values
-            }
+            .show()
+    }
+    private fun getStressLevelDescription(progress: Int): String {
+        return when (progress) {
+            in 0..3 -> "Low stress level! Nice!"
+            in 4..6 -> "Moderate stress level. Consider practicing mindfulness."
+            in 7..10 -> "High stress level. Take a break and relax."
+            else -> "Unexpected stress level. Please try again."
         }
 
     }

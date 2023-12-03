@@ -23,14 +23,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Stress Level: 0"
+        android:text="Level: 0"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/video_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stressSeekBar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/video_text"
@@ -39,6 +39,7 @@
         android:text="Check off any categories that you enjoy. "
         android:textAlignment="center"
         android:textSize="20dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
@@ -50,15 +51,15 @@
         android:id="@+id/stress_eval"
         android:layout_width="389dp"
         android:layout_height="92dp"
-        android:text="@string/on_a_scale_of_1_to_10_how_would_you_rate_your_current_stress_level_1_being_relaxed_and_10_being_extremly_stressed"
+        android:text="Please rate your stress level from a scale of 1-10."
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <SeekBar
         android:id="@+id/stressSeekBar"
@@ -120,8 +121,9 @@
         android:layout_width="264dp"
         android:layout_height="59dp"
         android:text="Current Stress Level:"
-        android:textSize="25dp"
         android:textColor="@color/black"
+        android:textSize="25dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
