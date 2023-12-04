@@ -67,14 +67,22 @@ class StressEvalFragment : Fragment() {
     fun showStressRatingDialog() {
         val seekBar = view?.findViewById<SeekBar>(R.id.stressSeekBar)
         val currentProgress = seekBar?.progress
-        val message = "Current Stress Level: $currentProgress\n" +
-                "${currentProgress?.let { getStressLevelDescription(it) }}"
+        val description = currentProgress?.let { getStressLevelDescription(it) }
 
         AlertDialog.Builder(requireActivity())
             .setTitle("Stress Rating")
-            .setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
+            .setMessage("Current Stress Level: $currentProgress\n$description")
+            .apply {
+                setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+
+                if (showOpenFragmentButton(currentProgress)) {
+                    setNegativeButton("Show Recommended") { dialog, _ ->
+                        openBrowseFragment()
+                        dialog.dismiss()
+                    }
+                }
             }
             .show()
     }
@@ -86,6 +94,19 @@ class StressEvalFragment : Fragment() {
             else -> "Unexpected stress level. Please try again."
         }
 
+
+
+    }
+    private fun openBrowseFragment() {
+        val fragment = BrowseFragment()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.entry_frame, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+    private fun showOpenFragmentButton(progress: Int?): Boolean {
+        // Adjust this condition based on the stress level range where you want to show the button
+        return progress != null && progress in 4..10
     }
 }
 
