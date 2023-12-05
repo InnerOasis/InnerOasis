@@ -65,6 +65,7 @@ class StressEvalFragment : Fragment() {
 
 
     fun showStressRatingDialog() {
+
         val seekBar = view?.findViewById<SeekBar>(R.id.stressSeekBar)
         val currentProgress = seekBar?.progress
         val description = currentProgress?.let { getStressLevelDescription(it) }
@@ -78,7 +79,7 @@ class StressEvalFragment : Fragment() {
                 }
 
                 if (showOpenFragmentButton(currentProgress)) {
-                    setNegativeButton("Show Recommended") { dialog, _ ->
+                    setNegativeButton("De-Stress") { dialog, _ ->
                         openBrowseFragment()
                         dialog.dismiss()
                     }
