@@ -16,16 +16,28 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <FrameLayout
         android:id="@+id/entry_frame"
         android:layout_width="409dp"
         android:layout_height="668dp"
-        android:layout_marginTop="63dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottom_navigation" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_navigation">
+
+        <Button
+            android:id="@+id/showStressButton"
+            android:layout_width="385dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:text="Show Stress Rating"
+            android:visibility="visible" />
+    </FrameLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
 
 class FavoriteFragment : Fragment() {
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.showStressButton()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? MainActivity)?.hideStressButton()
+    }
+
+
 
 
     override fun onCreateView(
