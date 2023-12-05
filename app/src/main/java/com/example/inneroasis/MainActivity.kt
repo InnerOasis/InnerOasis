@@ -1,5 +1,6 @@
 package com.example.inneroasis
 
+
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -58,9 +59,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
-
     private fun replaceFragment(entryFragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
@@ -68,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+    
     fun showStressButton() {
         findViewById<Button>(R.id.showStressButton).visibility = View.VISIBLE
     }
@@ -78,12 +77,4 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
-
-
-
-
     }
-
-
