@@ -18,6 +18,8 @@ const val VIDEO_EXTRA = "VIDEO_EXTRA"
 class BrowseViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, private val context: Context) :
     RecyclerView.Adapter<BrowseViewAdapter.YoutubeVideoViewHolder>() {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YoutubeVideoViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
@@ -35,6 +37,8 @@ class BrowseViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, p
 
     inner class YoutubeVideoViewHolder(view: View) : RecyclerView.ViewHolder(view),
         View.OnClickListener {
+
+
 
         private val mediaTitle: TextView? = view.findViewById<View>(R.id.titleTextView) as TextView?
         private val mediaDescription: TextView? = view.findViewById<View>(R.id.descriptionTextView) as TextView?
@@ -70,4 +74,5 @@ class BrowseViewAdapter(private val youtubeVideos: List<YoutubeModel.Results>, p
 
         }
     }
+
 }

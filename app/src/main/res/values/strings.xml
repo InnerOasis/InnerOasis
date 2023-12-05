@@ -8,4 +8,6 @@
     <string name="enter_here">Enter Here</string>
     <string name="enter_here2">Enter Here</string>
     <string name="enter_here3">Enter Here</string>
+    <string name="log_tag">StressEvalFragment</string>
+
 </resources>
