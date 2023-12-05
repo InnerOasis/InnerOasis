@@ -42,19 +42,19 @@ The De-Stresser App is a mobile application that transforms ones phone into a cu
 ### 2. Screen Archetypes
 
 - Stress Evaluation
-x  - User can choose if they are feeling stressed/anxious/nervous.
-x  - User can rate how stressed they are feeling.
+  - User can choose if they are feeling stressed/anxious/nervous.
+  - User can rate how stressed they are feeling.
 - Browse
-x  - User can browse through different categories such as audio, videos, or techniques. 
-x  - User can select any stress relief method they want.
+  - User can browse through different categories such as audio, videos, or techniques. 
+  - User can select any stress relief method they want.
 - Current de-stress
-x  - User can play sound, watch audio, or read relaxtion technique they selected.
-x  - User can add stress relief method to their favorites.
+  - User can play sound, watch audio, or read relaxtion technique they selected.
+  - User can add stress relief method to their favorites.
 - Search
-x  - User can search for specific stress relief methods.
+  - User can search for specific stress relief methods.
 - Favorites
-x  - User can see their favorite stress relief methods.
-x  - User can remove stress relief methods from there favorites.
+  - User can see their favorite stress relief methods.
+  - User can remove stress relief methods from there favorites.
 
 ### 3. Navigation
 
