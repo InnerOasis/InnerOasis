@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>YoutubeApiNetwork.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+YoutubeApiNetwork.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.inneroasis</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.util.Log</span>
+<span class="s1">import androidx.recyclerview.widget.LinearLayoutManager</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import com.codepath.asynchttpclient.AsyncHttpClient</span>
+<span class="s1">import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler</span>
+<span class="s1">import com.google.gson.Gson</span>
+<span class="s1">import com.google.gson.reflect.TypeToken</span>
+<span class="s1">import okhttp3.Headers</span>
+<span class="s1">import org.json.JSONArray</span>
+
+<span class="s2">/* YoutubeApiNetwork creates a functions to call Youtube Api */</span>
+
+<span class="s0">object </span><span class="s1">YoutubeApiNetwork {</span>
+    <span class="s0">fun </span><span class="s1">callYoutubeApi(recyclerView: RecyclerView</span><span class="s0">, </span><span class="s1">context: Context</span><span class="s0">, </span><span class="s1">searchValue: String</span><span class="s0">, </span><span class="s1">layout: String) {</span>
+
+        <span class="s0">val </span><span class="s1">client = AsyncHttpClient()</span>
+
+        <span class="s2">// Using the client, perform the HTTP request</span>
+        <span class="s1">client[</span>
+            <span class="s3">&quot;https://www.googleapis.com/youtube/v3/search?part=snippet&amp;maxResults=8&amp;q={</span><span class="s0">$</span><span class="s1">searchValue</span><span class="s3">}&amp;type=video&amp;key=AIzaSyBeuONBv3vODYD_xGs0o52aGJjzpi8-ehg&quot;</span><span class="s0">,</span>
+            <span class="s0">object </span><span class="s1">: JsonHttpResponseHandler() {</span>
+
+                <span class="s2">// Success when HTTP returns 200, reached API</span>
+                <span class="s1">override </span><span class="s0">fun </span><span class="s1">onSuccess(statusCode: Int</span><span class="s0">, </span><span class="s1">headers: Headers</span><span class="s0">, </span><span class="s1">json: JSON)</span>
+                <span class="s1">{</span>
+
+
+                    <span class="s0">val </span><span class="s1">resultsJSON : JSONArray = json.jsonObject.getJSONArray(</span><span class="s3">&quot;items&quot;</span><span class="s1">)</span>
+                    <span class="s0">val </span><span class="s1">jsonResponse : String = resultsJSON.toString()</span>
+
+                    <span class="s0">val </span><span class="s1">gson = Gson()</span>
+                    <span class="s1">Log.v(</span><span class="s3">&quot;Response CallApi&quot;</span><span class="s0">, </span><span class="s1">jsonResponse)</span>
+                    <span class="s0">val </span><span class="s1">modelsType = </span><span class="s0">object </span><span class="s1">: TypeToken&lt;List&lt;YoutubeModel.Results&gt;&gt;() {}.type</span>
+                    <span class="s0">val </span><span class="s1">models: List&lt;YoutubeModel.Results&gt;? = gson.fromJson(jsonResponse</span><span class="s0">, </span><span class="s1">modelsType)</span>
+
+
+                    <span class="s0">if </span><span class="s1">(layout == </span><span class="s3">&quot;horizontal&quot;</span><span class="s1">) {</span>
+                        <span class="s1">recyclerView.layoutManager =</span>
+                            <span class="s1">LinearLayoutManager(context</span><span class="s0">, </span><span class="s1">LinearLayoutManager.HORIZONTAL</span><span class="s0">, false</span><span class="s1">)</span>
+                    <span class="s1">}</span>
+
+                    <span class="s1">recyclerView.adapter = models?.let {</span>
+                        <span class="s1">BrowseViewAdapter(it</span><span class="s0">,</span>
+                            <span class="s1">context</span>
+                        <span class="s1">)</span>
+                    <span class="s1">}</span>
+
+                    <span class="s1">Log.d(</span><span class="s3">&quot;InnerOasis&quot;</span><span class="s0">, </span><span class="s3">&quot;response successful&quot;</span><span class="s1">)</span>
+
+
+                <span class="s1">}</span>
+
+                <span class="s2">// Failure when HTTP response is any 400</span>
+                <span class="s1">override </span><span class="s0">fun </span><span class="s1">onFailure(</span>
+                    <span class="s1">statusCode: Int</span><span class="s0">,</span>
+                    <span class="s1">headers: Headers?</span><span class="s0">,</span>
+                    <span class="s1">errorResponse: String</span><span class="s0">,</span>
+                    <span class="s1">t: Throwable?</span>
+                <span class="s1">) {</span>
+
+                    <span class="s1">t?.message?.let {</span>
+                        <span class="s1">Log.e(</span><span class="s3">&quot;InnerOasis&quot;</span><span class="s0">, </span><span class="s1">errorResponse)</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+            <span class="s1">}]</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>

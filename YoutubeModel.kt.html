@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>YoutubeModel.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+YoutubeModel.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.inneroasis</span>
+
+<span class="s1">import com.google.gson.annotations.SerializedName</span>
+
+<span class="s1">data </span><span class="s0">class </span><span class="s1">YoutubeModel(</span>
+    <span class="s1">@SerializedName(</span><span class="s2">&quot;items&quot;</span><span class="s1">)</span>
+    <span class="s0">val </span><span class="s1">youtubeItems: List&lt;Results&gt;?</span>
+<span class="s1">) : java.io.Serializable {</span>
+    <span class="s1">data </span><span class="s0">class </span><span class="s1">Results(</span>
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;id&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">id: Id? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;snippet&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">snippet: Snippet? = </span><span class="s0">null</span>
+    <span class="s1">) : java.io.Serializable</span>
+
+    <span class="s1">data </span><span class="s0">class </span><span class="s1">Id(</span>
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;kind&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">kind: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;videoId&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">videoId: String? = </span><span class="s0">null,</span>
+    <span class="s1">) : java.io.Serializable</span>
+
+    <span class="s1">data </span><span class="s0">class </span><span class="s1">Snippet(</span>
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;title&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">mediaName: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;thumbnails&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">thumbnails: Thumbnails? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;description&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">mediaDescription: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;channelTitle&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">channelTitle: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;liveBroadcastContent&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">liveBroadcastContent: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;publishTime&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">publishTime: String? = </span><span class="s0">null</span>
+    <span class="s1">) : java.io.Serializable</span>
+
+    <span class="s1">data </span><span class="s0">class </span><span class="s1">Thumbnails(</span>
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;default&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">defaultThumbnail: Thumbnail? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;medium&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">mediumThumbnail: Thumbnail? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;high&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">highThumbnail: Thumbnail? = </span><span class="s0">null</span>
+    <span class="s1">) : java.io.Serializable</span>
+
+    <span class="s1">data </span><span class="s0">class </span><span class="s1">Thumbnail(</span>
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;url&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">url: String? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;width&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">width: Int? = </span><span class="s0">null,</span>
+
+        <span class="s1">@SerializedName(</span><span class="s2">&quot;height&quot;</span><span class="s1">)</span>
+        <span class="s0">var </span><span class="s1">height: Int? = </span><span class="s0">null</span>
+    <span class="s1">) : java.io.Serializable</span>
+<span class="s1">}</span></pre>
+</body>
+</html>

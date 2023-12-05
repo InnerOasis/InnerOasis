@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>BrowseViewAdapter.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+BrowseViewAdapter.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.inneroasis</span>
+
+<span class="s1">import android.content.Context</span>
+<span class="s1">import android.content.Intent</span>
+<span class="s1">import android.util.Log</span>
+<span class="s1">import android.view.LayoutInflater</span>
+<span class="s1">import android.view.View</span>
+<span class="s1">import android.view.ViewGroup</span>
+<span class="s1">import android.widget.TextView</span>
+<span class="s1">import androidx.recyclerview.widget.RecyclerView</span>
+<span class="s1">import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer</span>
+<span class="s1">import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback</span>
+<span class="s1">import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView</span>
+
+<span class="s1">const </span><span class="s0">val </span><span class="s1">VIDEO_EXTRA = </span><span class="s2">&quot;VIDEO_EXTRA&quot;</span>
+
+
+<span class="s0">class </span><span class="s1">BrowseViewAdapter(private </span><span class="s0">val </span><span class="s1">youtubeVideos: List&lt;YoutubeModel.Results&gt;</span><span class="s0">, </span><span class="s1">private </span><span class="s0">val </span><span class="s1">context: Context) :</span>
+    <span class="s1">RecyclerView.Adapter&lt;BrowseViewAdapter.YoutubeVideoViewHolder&gt;() {</span>
+
+
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreateViewHolder(parent: ViewGroup</span><span class="s0">, </span><span class="s1">viewType: Int): YoutubeVideoViewHolder {</span>
+        <span class="s0">val </span><span class="s1">context = parent.context</span>
+        <span class="s0">val </span><span class="s1">inflater = LayoutInflater.from(context)</span>
+        <span class="s0">val </span><span class="s1">contactView = inflater.inflate(R.layout.media_layout</span><span class="s0">, </span><span class="s1">parent</span><span class="s0">, false</span><span class="s1">)</span>
+
+        <span class="s0">return </span><span class="s1">YoutubeVideoViewHolder(contactView)</span>
+    <span class="s1">}</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">getItemCount() = youtubeVideos.size</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onBindViewHolder(holder: YoutubeVideoViewHolder</span><span class="s0">, </span><span class="s1">position: Int) {</span>
+        <span class="s0">val </span><span class="s1">youtubeVideo = youtubeVideos[position]</span>
+        <span class="s1">youtubeVideo.snippet?.let { youtubeVideo.id?.let { it1 -&gt; holder.bind(it</span><span class="s0">, </span><span class="s1">it1) } }</span>
+    <span class="s1">}</span>
+
+    <span class="s1">inner </span><span class="s0">class </span><span class="s1">YoutubeVideoViewHolder(view: View) : RecyclerView.ViewHolder(view)</span><span class="s0">,</span>
+        <span class="s1">View.OnClickListener {</span>
+
+
+
+        <span class="s1">private </span><span class="s0">val </span><span class="s1">mediaTitle: TextView? = view.findViewById&lt;View&gt;(R.id.titleTextView) </span><span class="s0">as </span><span class="s1">TextView?</span>
+        <span class="s1">private </span><span class="s0">val </span><span class="s1">mediaDescription: TextView? = view.findViewById&lt;View&gt;(R.id.descriptionTextView) </span><span class="s0">as </span><span class="s1">TextView?</span>
+        <span class="s0">val </span><span class="s1">youtubePlayerView: YouTubePlayerView? = view.findViewById(R.id.youtube_player_view)</span>
+
+        <span class="s1">init {</span>
+            <span class="s1">view.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span>
+        <span class="s1">}</span>
+        <span class="s0">fun </span><span class="s1">bind(youtubeVideo: YoutubeModel.Snippet</span><span class="s0">, </span><span class="s1">youtubeId: YoutubeModel.Id) {</span>
+            <span class="s1">Log.v(</span><span class="s2">&quot;Json&quot;</span><span class="s0">, </span><span class="s1">youtubeVideo.toString())</span>
+            <span class="s1">mediaTitle?.text = youtubeVideo.mediaName</span>
+            <span class="s1">mediaDescription?.text = youtubeVideo.mediaDescription</span>
+            <span class="s1">youtubePlayerView?.getYouTubePlayerWhenReady(</span><span class="s0">object </span><span class="s1">: YouTubePlayerCallback {</span>
+                <span class="s1">override </span><span class="s0">fun </span><span class="s1">onYouTubePlayer(youTubePlayer: YouTubePlayer) {</span>
+                    <span class="s1">youtubeId.videoId?.let {</span>
+                        <span class="s1">youTubePlayer.cueVideo(</span>
+                            <span class="s1">it</span><span class="s0">,</span>
+                            <span class="s3">0f</span>
+                        <span class="s1">)</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+            <span class="s1">})</span>
+            <span class="s1">youtubeId.videoId?.let { Log.v(</span><span class="s2">&quot;Json&quot;</span><span class="s0">, </span><span class="s1">it) }</span>
+
+        <span class="s1">}</span>
+
+        <span class="s1">override </span><span class="s0">fun </span><span class="s1">onClick(v: View?) {</span>
+            <span class="s0">val </span><span class="s1">video = youtubeVideos[adapterPosition]</span>
+            <span class="s1">Log.v(</span><span class="s2">&quot;intent&quot;</span><span class="s0">, </span><span class="s1">video.toString())</span>
+            <span class="s0">val </span><span class="s1">intent = Intent(context</span><span class="s0">, </span><span class="s1">CurrentPlayActivity::</span><span class="s0">class</span><span class="s1">.java)</span>
+            <span class="s1">intent.putExtra(VIDEO_EXTRA</span><span class="s0">, </span><span class="s1">video)</span>
+            <span class="s1">context.startActivity(intent)</span>
+
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
