@@ -81,6 +81,3 @@ class BrowseViewAdapter(
     }
 }
 
-private fun Any.bind(video: VideoEntity) {
-
-}
