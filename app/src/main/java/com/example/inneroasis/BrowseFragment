@@ -52,7 +52,7 @@ class BrowseFragment : Fragment() {
         return 3
     }
 
-    private fun getRecommendedVideos(userStressLevel: Int): List<VideoEntity> {
+    private fun getRecommendedVideos(userStressLevel: Int): List<YoutubeModel.Results> {
         // Replace this with your logic to fetch recommended videos based on the user's stress level
         // Adjust the logic based on your specific requirements
         return when (userStressLevel) {
