@@ -1,0 +1,65 @@
+package com.example.inneroasis
+
+import BrowseViewAdapter
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+class BrowseFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.browse_view, container, false)
+        val context = view.context
+
+        // Fetch user's stress level (you can replace this with your logic)
+        val userStressLevel = getUserStressLevel()
+
+        // Display recommended videos based on the user's stress level
+        if (userStressLevel in 1..10) {
+            val recommendRV = view.findViewById<View>(R.id.recommendRecyclerView) as RecyclerView
+            recommendRV.layoutManager = GridLayoutManager(context, 2)
+
+            // Fetch and display recommended videos
+            val recommendedVideos = getRecommendedVideos(userStressLevel)
+            recommendRV.adapter = BrowseViewAdapter(recommendedVideos, context)
+        }
+
+        // Display nature videos
+        val natureRV = view.findViewById<View>(R.id.natureRecyclerView) as RecyclerView
+        natureRV.layoutManager = GridLayoutManager(context, 2)
+        apiCall(natureRV, searchValue = "nature_sounds")
+
+        // Display sensory videos
+        val sensoryRV = view.findViewById<View>(R.id.sensoryRecyclerView) as RecyclerView
+        sensoryRV.layoutManager = GridLayoutManager(context, 2)
+        apiCall(sensoryRV, searchValue = "sensory_visuals")
+
+        return view
+    }
+    private fun apiCall(recyclerView: RecyclerView, searchValue: String) {
+        YoutubeApiNetwork.callYoutubeApi(recyclerView, requireContext(), searchValue = searchValue, layout = "horizontal")
+    }
+
+    private fun getUserStressLevel(): Int {
+        // Replace this with your logic to fetch the user's stress level dynamically
+        return 3
+    }
+
+    private fun getRecommendedVideos(userStressLevel: Int): List<VideoEntity> {
+        // Replace this with your logic to fetch recommended videos based on the user's stress level
+        // Adjust the logic based on your specific requirements
+        return when (userStressLevel) {
+            in 0..3 -> listOf(/* List of recommended videos for low stress levels */)
+            in 4..7 -> listOf(/* List of recommended videos for moderate stress levels */)
+            in 8..10 -> listOf(/* List of recommended videos for high stress levels */)
+            else -> emptyList()
+        }
+    }
+}
