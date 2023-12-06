@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">InnerOasis</string>
+    <string name="do_you_enjoy_calming_or_relaxing_videos">Do you enjoy calming or relaxing videos?</string>
+    <string name="what_types_of_activities_or_hobbies_do_you_enjoy_that_help_you_relax">What types of activities or hobbies do you enjoy that help you relax?</string>
+    <string name="on_a_scale_of_1_to_10_how_would_you_rate_your_current_stress_level_1_being_relaxed_and_10_being_extremly_stressed">On a scale of 1 to 10, how would you rate your current stress level? 1 being relaxed and 10 being extremly stressed.</string>
+    <string name="do_you_notice_any_physical_symptoms_of_stress_such_as_muscle_tension_headaches_or_trouble_sleeping">Do you notice any physical symptoms of stress such as muscle tension, headaches, or trouble sleeping?</string>
+    <string name="submit">Submit</string>
+    <string name="enter_here">Enter Here</string>
+    <string name="enter_here2">Enter Here</string>
+    <string name="enter_here3">Enter Here</string>
+    <string name="log_tag">StressEvalFragment</string>
+
 </resources>
