@@ -106,3 +106,9 @@ The De-Stresser App is a mobile application that transforms ones phone into a cu
 
 <br>
 
+## Final Demo of App
+
+<img src='/InnerOasisDemo.gif' width="300" length="700">
+
+<br>
+
