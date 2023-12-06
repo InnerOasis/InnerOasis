@@ -113,5 +113,5 @@ The De-Stresser App is a mobile application that transforms ones phone into a cu
 <br>
 
 ## Pitch Video of App
-[Click here](/huge.mov)
+[Click here](/huge.mp4)
 
